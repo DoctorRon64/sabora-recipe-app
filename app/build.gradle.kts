@@ -41,27 +41,39 @@ android {
 }
 
 dependencies {
+    // Kotlin & Serialization
+    implementation(libs.kotlinStdlib)
     implementation(libs.kotlinx.serialization.json)
-    implementation(libs.kotlin.stdlib)
+
+    // Navigation
+    implementation(libs.androidx.navigation.compose)
+
+    // Room
     implementation(libs.androidx.room.runtime)
     implementation(libs.androidx.room.ktx)
-    implementation(libs.coil.compose.v222)
-    implementation(libs.androidx.activity.compose.v180)
-    implementation(libs.ui)
+
+    // Compose BOM + UI libraries (no explicit versions)
+    implementation(platform(libs.androidx.compose.bom))
+    implementation(libs.androidx.ui)
+    implementation(libs.androidx.ui.tooling.preview)
+    implementation(libs.androidx.material3)
+
+    // Coil Compose (latest single version)
+    implementation(libs.coil.compose)
+
+    // AndroidX Core & Lifecycle
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
-    implementation(libs.firebase.crashlytics.buildtools)
+
+    // Testing
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+
+    // Debug tools
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }

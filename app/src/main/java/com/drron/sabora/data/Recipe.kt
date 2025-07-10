@@ -1,13 +1,17 @@
 package com.drron.sabora.data
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class Recipe(
-    val id: String = UUID.randomUUID().toString(),
+    val id: Int = 0,
     var title: String = "",
     var imageUri: String = "",
     var ingredients: MutableList<Ingredient> = mutableListOf(),
-    var steps: MutableList<String> = mutableListOf()
+    var steps: List<String> = mutableListOf()
 )
 
+@Serializable
 data class Ingredient(
     val name: String,
     val quantity: Float,
